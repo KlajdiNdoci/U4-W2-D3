@@ -15,16 +15,25 @@ public class Order {
 
     public Order(List<Product> products, Customer customer) {
         Random rand = new Random();
+        int randDay = rand.nextInt(1, 365);
         this.id = rand.nextLong();
         this.status = "ordered";
-        this.orderDate = LocalDate.now();
-        this.deliveryDate = LocalDate.now().plusDays(5);
+        this.orderDate = LocalDate.ofYearDay(2021, randDay);
+        this.deliveryDate = orderDate.plusDays(5);
         this.products = products;
         this.customer = customer;
     }
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
     @Override

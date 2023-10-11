@@ -11,7 +11,11 @@ public class Customer {
         Random rand = new Random();
         this.id = rand.nextLong();
         this.name = name;
-        this.tier = rand.nextInt(3);
+        this.tier = rand.nextInt(1, 3);
+    }
+
+    public int getTier() {
+        return tier;
     }
 
     @Override
