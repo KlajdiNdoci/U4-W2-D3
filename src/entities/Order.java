@@ -13,13 +13,31 @@ public class Order {
 
     private Customer customer;
 
-    public Order(String status, LocalDate orderDate, LocalDate deliveryDate, List<Product> products, Customer customer) {
+    public Order(List<Product> products, Customer customer) {
         Random rand = new Random();
         this.id = rand.nextLong();
-        this.status = status;
-        this.orderDate = orderDate;
-        this.deliveryDate = deliveryDate;
+        this.status = "ordered";
+        this.orderDate = LocalDate.now();
+        this.deliveryDate = LocalDate.now().plusDays(5);
         this.products = products;
         this.customer = customer;
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", status='" + status + '\'' +
+                ", orderDate=" + orderDate +
+                ", deliveryDate=" + deliveryDate +
+                ", products=" + products +
+                ", customer=" + customer +
+                '}';
+    }
+
+
 }
