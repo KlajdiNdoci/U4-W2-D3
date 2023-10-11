@@ -13,7 +13,7 @@ public class Order {
 
     private Customer customer;
 
-    public Order(long id, String status, LocalDate orderDate, LocalDate deliveryDate, List<Product> products, Customer customer) {
+    public Order(String status, LocalDate orderDate, LocalDate deliveryDate, List<Product> products, Customer customer) {
         Random rand = new Random();
         this.id = rand.nextLong();
         this.status = status;

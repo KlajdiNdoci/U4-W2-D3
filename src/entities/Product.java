@@ -8,11 +8,29 @@ public class Product {
     private String category;
     private double price;
 
-    public Product(long id, String name, String category, double price) {
+    public Product(String name, String category) {
         Random rand = new Random();
         this.id = rand.nextLong();
         this.name = name;
         this.category = category;
-        this.price = price;
+        this.price = rand.nextInt(200);
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

@@ -7,7 +7,7 @@ public class Customer {
     private String name;
     private int tier;
 
-    public Customer(long id, String name, int tier) {
+    public Customer(String name, int tier) {
         Random rand = new Random();
         this.id = rand.nextLong();
         this.name = name;
