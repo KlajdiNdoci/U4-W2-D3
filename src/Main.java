@@ -2,6 +2,7 @@ import entities.Customer;
 import entities.Order;
 import entities.Product;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Main {
             productList.add(new Product("Biberon", "Baby"));
         }
         for (int i = 0; i < 5; i++) {
-            productList.add(new Product("LordOfTheRings", "Boys"));
+            productList.add(new Product("Skateboard", "Boys"));
         }
 
 //        bookList.forEach(i -> System.out.println(i));
@@ -43,6 +44,20 @@ public class Main {
                 .toList();
 
         filteredProducts.forEach(System.out::println);
+
+        System.out.println("**************************EXERCISE 3***********************************");
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        List<Product> boysProducts = productList.stream()
+                .filter(product -> product.getCategory().equals("Boys"))
+                .map(product -> {
+                    double originalPrice = product.getPrice();
+                    double discountedPrice = originalPrice * 0.9;
+                    String formattedPrice = decimalFormat.format(discountedPrice).replace(',', '.');
+                    product.setPrice(Double.parseDouble(formattedPrice));
+                    return product;
+                })
+                .toList();
+        boysProducts.forEach(System.out::println);
 
 
     }
